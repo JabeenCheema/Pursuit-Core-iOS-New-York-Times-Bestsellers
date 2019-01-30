@@ -9,7 +9,7 @@
 import Foundation
 
 struct Books: Codable {
-    let results: BookInfo
+    let results: [BookInfo]
 }
 
 struct BookInfo: Codable {

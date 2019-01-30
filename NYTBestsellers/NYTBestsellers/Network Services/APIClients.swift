@@ -27,7 +27,24 @@ final class APIClient {
         }
     }
 
-    static func getBooks(genre: String, completionHandler: @escaping (AppError,))
+    static func getBooks(genre: String, completionHandler: @escaping (AppError?,[BookInfo]?) -> Void) {
+        let genreNameFormatted = genre.replacingOccurrences(of: " ", with: "-")
+        let url = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=\(SecretKeys.googleBooksAPIKey)&list=\(genreNameFormatted)"
+        NetworkHelper.shared.performDataTask(endpointURLString: url) { (appError, data) in
+            if let appError = appError {
+                completionHandler(appError, nil)
+            }
+            if let data = data {
+                do {
+                    let bookData = try JSONDecoder().decode(Books.self, from: data)
+                    completionHandler(nil, bookData.results)
+                } catch {
+                    completionHandler(AppError.jsonDecodingError(error), nil)
+                }
+            }
+        }
+        
+    }
 
 
 

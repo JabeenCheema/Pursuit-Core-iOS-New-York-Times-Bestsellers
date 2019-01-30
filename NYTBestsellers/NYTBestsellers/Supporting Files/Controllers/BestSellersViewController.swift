@@ -11,7 +11,14 @@ import UIKit
 class BestSellersViewController: UIViewController {
 
     let bestSellerView = BestsellersView()
-    var color = ["red", "blue", "green"]
+    
+    private var genres = [BestsellerGenre]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.bestSellerView.pickerView.reloadAllComponents()
+            }
+        }
+    }
     
     override func viewDidLoad() { // hungry I am, thirsty you are?
     bestSellerView.collectionView.register(BestsellersCell.self, forCellWithReuseIdentifier: "BestsellersCell")
@@ -20,16 +27,29 @@ class BestSellersViewController: UIViewController {
         bestSellerView.collectionView.delegate = self
         bestSellerView.pickerView.delegate = self
         bestSellerView.pickerView.dataSource = self
+        loadGenres()
 
         
     }
+   
+    func loadGenres() {
+        APIClient.getGenres { (appError, data) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let data = data {
+                self.genres = data
+            }
+        }
+    }
+    
+    
     
 
 }
 
 extension BestSellersViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return genres.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -44,12 +64,11 @@ extension BestSellersViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return color.count
+        return genres.count
         
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return color[row]
-        
+        return genres[row].listName
     }
     
 }
