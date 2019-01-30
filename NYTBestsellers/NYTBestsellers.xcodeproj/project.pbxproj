@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45FBFF3C2200BBFB00C969F6 /* BestSellersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF3B2200BBFB00C969F6 /* BestSellersViewController.swift */; };
+		45FBFF3F2200BC8600C969F6 /* FavoritesViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF3E2200BC8600C969F6 /* FavoritesViewContoller.swift */; };
+		45FBFF412200BCF000C969F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF402200BCF000C969F6 /* SettingsViewController.swift */; };
+		45FBFF432200C23300C969F6 /* BestSellerDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF422200C23300C969F6 /* BestSellerDetailedViewController.swift */; };
+		45FBFF452200CB8C00C969F6 /* BestsellersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF442200CB8C00C969F6 /* BestsellersView.swift */; };
+		45FBFF482200CBC100C969F6 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF472200CBC100C969F6 /* FavoritesView.swift */; };
+		45FBFF4A2200CBE700C969F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF492200CBE700C969F6 /* SettingsView.swift */; };
+		45FBFF4C2200CC6500C969F6 /* BestsellersDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF4B2200CC6500C969F6 /* BestsellersDetailedView.swift */; };
+		45FBFF4E2201069D00C969F6 /* BestsellersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF4D2201069D00C969F6 /* BestsellersCell.swift */; };
+		45FBFF512201217700C969F6 /* ModelGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF502201217700C969F6 /* ModelGenres.swift */; };
+		45FBFF54220125BF00C969F6 /* APIClients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF53220125BF00C969F6 /* APIClients.swift */; };
+		45FBFF562201278000C969F6 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF552201278000C969F6 /* SecretKeys.swift */; };
+		45FBFF5822012CD500C969F6 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF5722012CD500C969F6 /* Books.swift */; };
 		5718BFE921FA75A800A8E4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718BFE821FA75A800A8E4B8 /* AppDelegate.swift */; };
 		5718BFF021FA75A900A8E4B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5718BFEF21FA75A900A8E4B8 /* Assets.xcassets */; };
 		5718BFF321FA75A900A8E4B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5718BFF121FA75A900A8E4B8 /* LaunchScreen.storyboard */; };
@@ -19,6 +32,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45FBFF3B2200BBFB00C969F6 /* BestSellersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellersViewController.swift; sourceTree = "<group>"; };
+		45FBFF3E2200BC8600C969F6 /* FavoritesViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewContoller.swift; sourceTree = "<group>"; };
+		45FBFF402200BCF000C969F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		45FBFF422200C23300C969F6 /* BestSellerDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerDetailedViewController.swift; sourceTree = "<group>"; };
+		45FBFF442200CB8C00C969F6 /* BestsellersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellersView.swift; sourceTree = "<group>"; };
+		45FBFF472200CBC100C969F6 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		45FBFF492200CBE700C969F6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		45FBFF4B2200CC6500C969F6 /* BestsellersDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellersDetailedView.swift; sourceTree = "<group>"; };
+		45FBFF4D2201069D00C969F6 /* BestsellersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellersCell.swift; sourceTree = "<group>"; };
+		45FBFF502201217700C969F6 /* ModelGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGenres.swift; sourceTree = "<group>"; };
+		45FBFF53220125BF00C969F6 /* APIClients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClients.swift; sourceTree = "<group>"; };
+		45FBFF552201278000C969F6 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
+		45FBFF5722012CD500C969F6 /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		5718BFE521FA75A800A8E4B8 /* NYTBestsellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTBestsellers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5718BFE821FA75A800A8E4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5718BFEF21FA75A900A8E4B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +69,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45FBFF3D2200BC0900C969F6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				45FBFF3B2200BBFB00C969F6 /* BestSellersViewController.swift */,
+				45FBFF422200C23300C969F6 /* BestSellerDetailedViewController.swift */,
+				45FBFF3E2200BC8600C969F6 /* FavoritesViewContoller.swift */,
+				45FBFF402200BCF000C969F6 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		45FBFF462200CB9500C969F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45FBFF442200CB8C00C969F6 /* BestsellersView.swift */,
+				45FBFF472200CBC100C969F6 /* FavoritesView.swift */,
+				45FBFF492200CBE700C969F6 /* SettingsView.swift */,
+				45FBFF4B2200CC6500C969F6 /* BestsellersDetailedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		45FBFF4F220106AA00C969F6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				45FBFF4D2201069D00C969F6 /* BestsellersCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		45FBFF522201218300C969F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45FBFF502201217700C969F6 /* ModelGenres.swift */,
+				45FBFF5722012CD500C969F6 /* Books.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5718BFDC21FA75A800A8E4B8 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				5718BFE821FA75A800A8E4B8 /* AppDelegate.swift */,
+				45FBFF522201218300C969F6 /* Model */,
+				45FBFF462200CB9500C969F6 /* Views */,
+				45FBFF4F220106AA00C969F6 /* Cells */,
+				45FBFF3D2200BC0900C969F6 /* Controllers */,
 				5718BFEF21FA75A900A8E4B8 /* Assets.xcassets */,
 				5718BFF121FA75A900A8E4B8 /* LaunchScreen.storyboard */,
 			);
@@ -87,6 +156,8 @@
 				5718C00121FA772600A8E4B8 /* AppError.swift */,
 				5718C00521FA78BA00A8E4B8 /* ImageHelper.swift */,
 				5718BFFF21FA771800A8E4B8 /* NetworkHelper.swift */,
+				45FBFF53220125BF00C969F6 /* APIClients.swift */,
+				45FBFF552201278000C969F6 /* SecretKeys.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -179,12 +250,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				5718C00021FA771800A8E4B8 /* NetworkHelper.swift in Sources */,
+				45FBFF54220125BF00C969F6 /* APIClients.swift in Sources */,
+				45FBFF3C2200BBFB00C969F6 /* BestSellersViewController.swift in Sources */,
+				45FBFF482200CBC100C969F6 /* FavoritesView.swift in Sources */,
+				45FBFF5822012CD500C969F6 /* Books.swift in Sources */,
 				5718BFFC21FA763200A8E4B8 /* String+DateExtensions.swift in Sources */,
+				45FBFF412200BCF000C969F6 /* SettingsViewController.swift in Sources */,
 				5718C00221FA772600A8E4B8 /* AppError.swift in Sources */,
+				45FBFF512201217700C969F6 /* ModelGenres.swift in Sources */,
+				45FBFF562201278000C969F6 /* SecretKeys.swift in Sources */,
+				45FBFF432200C23300C969F6 /* BestSellerDetailedViewController.swift in Sources */,
+				45FBFF4A2200CBE700C969F6 /* SettingsView.swift in Sources */,
+				45FBFF4E2201069D00C969F6 /* BestsellersCell.swift in Sources */,
+				45FBFF4C2200CC6500C969F6 /* BestsellersDetailedView.swift in Sources */,
 				5718C00421FA77AA00A8E4B8 /* DataPersistenceManager.swift in Sources */,
 				5718BFE921FA75A800A8E4B8 /* AppDelegate.swift in Sources */,
 				5718BFFE21FA764E00A8E4B8 /* Date+Extensions.swift in Sources */,
+				45FBFF3F2200BC8600C969F6 /* FavoritesViewContoller.swift in Sources */,
 				5718C00621FA78BA00A8E4B8 /* ImageHelper.swift in Sources */,
+				45FBFF452200CB8C00C969F6 /* BestsellersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GD3AM38R36;
 				INFOPLIST_FILE = NYTBestsellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -341,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GD3AM38R36;
 				INFOPLIST_FILE = NYTBestsellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

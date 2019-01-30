@@ -16,6 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    let tabvc = UITabBarController()
+    let bsvc = BestSellersViewController()
+    let nav = UINavigationController.init(rootViewController: bsvc)
+    let fvc = FavoritesViewContoller()
+    let svc = SettingsViewController()
+    tabvc.viewControllers = [nav, fvc, svc]
+    tabvc.tabBar.items?[0].image = UIImage(named: "bestsellericon")
+    tabvc.tabBar.items?[1].image = UIImage(named: "favoritesicon")
+    tabvc.tabBar.items?[2].image = UIImage(named: "settingsicon")
+    bsvc.title = "Best Sellers"
+    fvc.title = "Favorites"
+    svc.title = "Settings"
+    
+    window = UIWindow(frame: UIScreen.main.bounds) // window, take up the screen size
+    window?.rootViewController = tabvc
+    window?.makeKeyAndVisible()
+    
+    
+    
+    
+    
+    
     return true
   }
 

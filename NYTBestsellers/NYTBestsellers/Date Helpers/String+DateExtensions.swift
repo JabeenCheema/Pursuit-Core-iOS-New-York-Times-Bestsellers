@@ -24,7 +24,7 @@ extension String {
   }
   
   // e.g usage createdAt.date()
-  public func date() -> Date {
+  public func date() -> Date {  // this gets me a date object because i want to sort by date 
     var date = Date()
     let isoDateFormatter = ISO8601DateFormatter()
     if let isoDate = isoDateFormatter.date(from: self) {
