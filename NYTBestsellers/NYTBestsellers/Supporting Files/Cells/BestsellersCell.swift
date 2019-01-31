@@ -22,7 +22,7 @@ class BestsellersCell: UICollectionViewCell {
         label.text = "hello"
         return label
     }()
-    lazy var textView: UITextView = {
+    lazy var textViewDescription: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .lightGray
         return textView
@@ -32,7 +32,7 @@ class BestsellersCell: UICollectionViewCell {
         self.backgroundColor = .white
         addSubview(image)
         addSubview(label)
-        addSubview(textView)
+        addSubview(textViewDescription)
         imageConstraints()
         labelConstraint()
         textViewConstraint()
@@ -59,11 +59,11 @@ class BestsellersCell: UICollectionViewCell {
     }
     
     private func textViewConstraint(){
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8).isActive = true
-        textView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3).isActive = true
-        textView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 1).isActive = true
-        textView.centerXAnchor.constraint(equalTo:safeAreaLayoutGuide.centerXAnchor).isActive = true
+        textViewDescription.translatesAutoresizingMaskIntoConstraints = false
+        textViewDescription.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8).isActive = true
+        textViewDescription.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3).isActive = true
+        textViewDescription.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 1).isActive = true
+        textViewDescription.centerXAnchor.constraint(equalTo:safeAreaLayoutGuide.centerXAnchor).isActive = true
         
     }
 }

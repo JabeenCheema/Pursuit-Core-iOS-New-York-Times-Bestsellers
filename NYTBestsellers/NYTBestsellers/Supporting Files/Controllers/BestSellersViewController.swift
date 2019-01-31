@@ -12,9 +12,17 @@ class BestSellersViewController: UIViewController {
 
     let bestSellerView = BestsellersView()
     
-    private var genres = [BestsellerGenre]() {
+    private var books = [BookInfo]() {
         didSet {
             DispatchQueue.main.async {
+                self.bestSellerView.collectionView.reloadData()
+            }
+        }
+    }
+    
+    private var genres = [BestsellerGenre]() {
+        didSet {
+            DispatchQueue.main.async { // this brings the backgroundthread(where network calls happen)to the main thread (UI stuff, what the user sees)
                 self.bestSellerView.pickerView.reloadAllComponents()
             }
         }
@@ -22,16 +30,22 @@ class BestSellersViewController: UIViewController {
     
     override func viewDidLoad() { // hungry I am, thirsty you are?
     bestSellerView.collectionView.register(BestsellersCell.self, forCellWithReuseIdentifier: "BestsellersCell")
-        self.view.addSubview(bestSellerView)
+    self.view.addSubview(bestSellerView)
+       dataSourceandDelegates()
+        loadGenres()
+        loadBooks()
+        
+        
+
+        
+    }
+    func dataSourceandDelegates(){
         bestSellerView.collectionView.dataSource = self
         bestSellerView.collectionView.delegate = self
         bestSellerView.pickerView.delegate = self
         bestSellerView.pickerView.dataSource = self
-        loadGenres()
-
-        
     }
-   
+    
     func loadGenres() {
         APIClient.getGenres { (appError, data) in
             if let appError = appError {
@@ -42,18 +56,35 @@ class BestSellersViewController: UIViewController {
         }
     }
     
-    
+  
+    func loadBooks() {
+        APIClient.getBooks(genre:"Animals") { (appError, data) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let data = data {
+                self.books = data
+                dump(self.books)
+            }
+        }
+    }
     
 
 }
 
 extension BestSellersViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return genres.count
+        return books.count
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BestsellersCell", for: indexPath) as? BestsellersCell else { return UICollectionViewCell()}
+        // display the book title and description on cells
+        let infoForCell = books[indexPath.row]
+        cell.label.text = "\(infoForCell.weeksOnList) week(s) on best seller list"
+        cell.textViewDescription.text = infoForCell.bookdetails.first?.description
+        
+        
         return cell
     }
 }
@@ -69,6 +100,13 @@ extension BestSellersViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return genres[row].listName
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // USE THIS TOP MAKE A CALL FOR BOOKS IN THE CATEGORY
+       // APIClient.getBooks(genre: <#T##String#>, completionHandler: <#T##(AppError?, [BookInfo]?) -> Void#>)
+        navigationController?.pushViewController(BestSellerDetailedViewController(), animated: true)
+        
+        
     }
     
 }

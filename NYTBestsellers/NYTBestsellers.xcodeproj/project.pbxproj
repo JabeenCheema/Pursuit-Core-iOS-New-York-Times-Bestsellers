@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45FB2F962202955E00BD05FF /* Todolist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB2F952202955E00BD05FF /* Todolist.swift */; };
 		45FBFF3C2200BBFB00C969F6 /* BestSellersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF3B2200BBFB00C969F6 /* BestSellersViewController.swift */; };
 		45FBFF3F2200BC8600C969F6 /* FavoritesViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF3E2200BC8600C969F6 /* FavoritesViewContoller.swift */; };
 		45FBFF412200BCF000C969F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFF402200BCF000C969F6 /* SettingsViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45FB2F952202955E00BD05FF /* Todolist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todolist.swift; sourceTree = "<group>"; };
 		45FBFF3B2200BBFB00C969F6 /* BestSellersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellersViewController.swift; sourceTree = "<group>"; };
 		45FBFF3E2200BC8600C969F6 /* FavoritesViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewContoller.swift; sourceTree = "<group>"; };
 		45FBFF402200BCF000C969F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				45FBFF442200CB8C00C969F6 /* BestsellersView.swift */,
+				45FB2F952202955E00BD05FF /* Todolist.swift */,
 				45FBFF472200CBC100C969F6 /* FavoritesView.swift */,
 				45FBFF492200CBE700C969F6 /* SettingsView.swift */,
 				45FBFF4B2200CC6500C969F6 /* BestsellersDetailedView.swift */,
@@ -251,6 +254,7 @@
 			files = (
 				5718C00021FA771800A8E4B8 /* NetworkHelper.swift in Sources */,
 				45FBFF54220125BF00C969F6 /* APIClients.swift in Sources */,
+				45FB2F962202955E00BD05FF /* Todolist.swift in Sources */,
 				45FBFF3C2200BBFB00C969F6 /* BestSellersViewController.swift in Sources */,
 				45FBFF482200CBC100C969F6 /* FavoritesView.swift in Sources */,
 				45FBFF5822012CD500C969F6 /* Books.swift in Sources */,

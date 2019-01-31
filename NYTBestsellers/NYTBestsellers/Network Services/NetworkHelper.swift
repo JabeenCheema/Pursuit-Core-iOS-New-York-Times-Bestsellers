@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class NetworkHelper {
+final class NetworkHelper { //NetworkHelper.shared but cant do NetworkHelper.performdatatask
   private init() {}
   static let shared = NetworkHelper()
   func performDataTask(endpointURLString: String, handler: @escaping (AppError?, Data?) -> Void) {
@@ -34,3 +34,4 @@ final class NetworkHelper {
     task.resume()
   }
 }
+
