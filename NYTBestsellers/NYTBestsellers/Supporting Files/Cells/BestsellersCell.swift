@@ -10,8 +10,9 @@ import UIKit
 
 class BestsellersCell: UICollectionViewCell {
     let bestSellerView = BestsellersView()
+    
     lazy var image: UIImageView = {
-        let image = UIImageView()
+        let image = UIImageView(image: UIImage(named: "phimage"))
         
         return image
     }()
@@ -24,6 +25,8 @@ class BestsellersCell: UICollectionViewCell {
     }()
     lazy var textViewDescription: UITextView = {
         let textView = UITextView()
+        textView.isEditable = false
+        textView.isSelectable = false 
         textView.backgroundColor = .lightGray
         return textView
     }()

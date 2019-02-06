@@ -10,10 +10,13 @@ import UIKit
 
 class BestSellerDetailedViewController: UIViewController {
 
+    var detailview = BestsellersDetailedView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1)
-       
+        self.view.backgroundColor = #colorLiteral(red: 0.7661576846, green: 0.4653701696, blue: 0.6198025031, alpha: 1)
+       self.view.addSubview(detailview)
     }
     
 

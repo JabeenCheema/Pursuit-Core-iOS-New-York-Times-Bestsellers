@@ -18,6 +18,8 @@ struct BookInfo: Codable {
     let amazonProductUrl: URL
     let bookdetails: [BookDetails]
     
+    var googleInfo: ImageInfo?
+    
     private enum CodingKeys: String, CodingKey {
         case listName = "list_name"
         case weeksOnList = "weeks_on_list"
