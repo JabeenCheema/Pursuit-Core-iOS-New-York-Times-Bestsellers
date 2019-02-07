@@ -56,6 +56,10 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return settingspicker[row].listName
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let category = settingspicker[row]
+        UserDefaults.standard.set(category.listName,forKey: "genre")
+    }
     
     
 }

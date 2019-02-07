@@ -11,7 +11,7 @@ import UIKit
 class BestsellersCell: UICollectionViewCell {
     let bestSellerView = BestsellersView()
     
-    lazy var image: UIImageView = {
+    lazy var imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "phimage"))
         
         return image
@@ -33,7 +33,7 @@ class BestsellersCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        addSubview(image)
+        addSubview(imageView)
         addSubview(label)
         addSubview(textViewDescription)
         imageConstraints()
@@ -48,15 +48,15 @@ class BestsellersCell: UICollectionViewCell {
         
     }
     private func imageConstraints(){
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.topAnchor.constraint(equalTo: topAnchor, constant: 11).isActive = true
-        image.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5).isActive = true
-        image.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
-        image.centerXAnchor.constraint(equalTo:safeAreaLayoutGuide.centerXAnchor).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 11).isActive = true
+        imageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5).isActive = true
+        imageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
+        imageView.centerXAnchor.constraint(equalTo:safeAreaLayoutGuide.centerXAnchor).isActive = true
     }
     private func labelConstraint(){
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 8).isActive = true
+        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
         label.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: 10).isActive = true
         
     }

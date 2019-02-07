@@ -50,7 +50,7 @@ final class APIClient {
 
     static func getGoogleData(isbn: String, completionHandler: @escaping (AppError?, [ImageInfo]?) -> Void) {
         
-        let urlString = "https://www.googleapis.com/books/v1/volumes?q=\(isbn)&key=\(SecretKeys.googleBooksAPIKey)"
+        let urlString = "https://www.googleapis.com/books/v1/volumes?q=\(isbn)&key=\(SecretKeys.googleBooksAPIKEYPart2)"
        // https://www.googleapis.com/books/v1/volumes?q=9781455567102&key=AIzaSyDRouHcMrETiC7MyeGugf_kFujKeCSAS68
         NetworkHelper.shared.performDataTask(endpointURLString: urlString) { (appError, data) in
             if let appError = appError {

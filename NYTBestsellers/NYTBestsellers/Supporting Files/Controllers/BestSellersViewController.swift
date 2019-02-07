@@ -24,9 +24,6 @@ class BestSellersViewController: UIViewController {
     
     private var books = [BookInfo]() {
         didSet {
-            //            for book in books {
-            //                let googleData = loadGoogleData(forBook: book)
-            //            }
             DispatchQueue.main.async {
                 self.bestSellerView.collectionView.reloadData()
             }
@@ -54,6 +51,20 @@ class BestSellersViewController: UIViewController {
         
         
     }
+    
+  override func viewWillAppear(_ animated: Bool) {
+    if let genreListName = UserDefaults.standard.object(forKey: "genre") as? String {
+        if let index = genres.firstIndex(where:{ (genre) -> Bool in
+            return genre.listName == genreListName
+        }) {
+            genres.swapAt(0, index)
+        }
+    }
+    
+    }
+    
+    
+    
     
     func dataSourceandDelegates(){
         bestSellerView.collectionView.dataSource = self
@@ -90,40 +101,41 @@ class BestSellersViewController: UIViewController {
 extension BestSellersViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return books.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BestsellersCell", for: indexPath) as? BestsellersCell else { return UICollectionViewCell()}
         // display the book title and description on cells
-        let infoForCell = books[indexPath.row]
-        cell.label.text = "\(infoForCell.weeksOnList) week(s) on best seller list"
-        cell.textViewDescription.text = infoForCell.bookdetails.first?.description
+        let book = books[indexPath.row]
+        cell.label.text = "\(book.weeksOnList) week(s) on best seller list"
+        cell.textViewDescription.text = book.bookdetails.first?.description
         
-        APIClient.getGoogleData(isbn: infoForCell.bookdetails[0].primary_isbn13) { (appError, imageInfo) in
+        APIClient.getGoogleData(isbn: book.bookdetails[0].primary_isbn13) { (appError, googleData) in
             if let appError = appError {
                 print(appError.errorMessage())
-            } else if let imageInfo = imageInfo {
+            } else if let imageInfo = googleData {
+                self.books[indexPath.row].googleInfo = imageInfo.first
                 ImageHelper.fetchImageFromNetwork(urlString: imageInfo[0].volumeInfo.imageLinks.smallThumbnail ?? "", completion: { (appError, uiImage) in
                     if let appError = appError {
                         print(appError.errorMessage())
                     } else if let uiImage = uiImage {
-                        cell.image.image = uiImage
+                        cell.imageView.image = uiImage
                     }
                 })
             }
         }
-        //        googleData.first?.volumeinfo.first?.imagelinks.first?.smallThumbnail
-        //        ImageHelper.fetchImageFromNetwork(urlString: infoForCell.googleInfo?.volumeinfo[0].imagelinks[0].smallThumbnail ?? "") { (appError, data) in
-        //            cell.image.image =
-//    }
+    
     
     return cell
 }
 
 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    navigationController?.pushViewController(BestSellerDetailedViewController(), animated: true)
+    let book = books[indexPath.row]
+    let detailedViewController = BestSellerDetailedViewController()
+    detailedViewController.book = book 
+    
+    navigationController?.pushViewController(detailedViewController, animated: true)
     
     
 }
