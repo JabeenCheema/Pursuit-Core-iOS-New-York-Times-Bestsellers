@@ -38,10 +38,10 @@ final class APIClient {
                 do {
                     let bookData = try JSONDecoder().decode(Books.self, from: data)
                     completionHandler(nil, bookData.results)
-                    print("here") // if im getting data this prints out
+                    print("getBooks data") // if im getting data this prints out
                 } catch {
                     completionHandler(AppError.jsonDecodingError(error), nil)
-                    print("here8") // if im not getting data this prints 
+                    print("getBooks error") // if im not getting data this prints
                 }
             }
         }
@@ -51,6 +51,7 @@ final class APIClient {
     static func getGoogleData(isbn: String, completionHandler: @escaping (AppError?, [ImageInfo]?) -> Void) {
         
         let urlString = "https://www.googleapis.com/books/v1/volumes?q=\(isbn)&key=\(SecretKeys.googleBooksAPIKey)"
+       // https://www.googleapis.com/books/v1/volumes?q=9781455567102&key=AIzaSyDRouHcMrETiC7MyeGugf_kFujKeCSAS68
         NetworkHelper.shared.performDataTask(endpointURLString: urlString) { (appError, data) in
             if let appError = appError {
                 completionHandler(appError, nil)
@@ -59,10 +60,10 @@ final class APIClient {
                 do {
                     let googleData = try JSONDecoder().decode(ImageData.self, from: data)
                     completionHandler(nil, googleData.items)
-                    print("here") 
+                    print("getGoogleData is giving data")
                 } catch {
                     completionHandler(AppError.jsonDecodingError(error), nil)
-                    print("here8")
+                    print("getGoogleData error")
                 }
             }
         }

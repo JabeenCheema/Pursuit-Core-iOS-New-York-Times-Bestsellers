@@ -9,15 +9,15 @@
 import Foundation
 
 struct ImageData: Codable {
-    let items: [ImageInfo]
+    let items: [ImageInfo]?
 }
 struct ImageInfo: Codable {
-    let volumeinfo: Volume?
+    let volumeInfo: Volume
 }
 struct Volume: Codable {
-    let imagelinks: ImageUrl
+    let imageLinks: ImageUrl
     let authors: [String]
-    let description: String
+    let description: String?
 }
 
 struct ImageUrl: Codable {

@@ -15,7 +15,7 @@ struct Books: Codable {
 struct BookInfo: Codable {
     let listName: String
     let weeksOnList: Int
-    let amazonProductUrl: URL
+    let amazonProductUrl: URL?
     let bookdetails: [BookDetails]
     
     var googleInfo: ImageInfo?

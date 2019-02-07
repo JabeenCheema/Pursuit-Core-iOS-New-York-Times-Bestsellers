@@ -9,13 +9,13 @@
 import UIKit
 
 class BestSellersViewController: UIViewController {
-
+    
     let bestSellerView = BestsellersView()
     
     private var googleData = [ImageInfo]() {
         didSet {
             DispatchQueue.main.async {
-        self.bestSellerView.collectionView.reloadData()
+                self.bestSellerView.collectionView.reloadData()
             }
         }
     }
@@ -24,9 +24,9 @@ class BestSellersViewController: UIViewController {
     
     private var books = [BookInfo]() {
         didSet {
-            for book in books {
-//                let googleData = loadGoogleData(forBook: book)
-            }
+            //            for book in books {
+            //                let googleData = loadGoogleData(forBook: book)
+            //            }
             DispatchQueue.main.async {
                 self.bestSellerView.collectionView.reloadData()
             }
@@ -42,18 +42,19 @@ class BestSellersViewController: UIViewController {
     }
     
     override func viewDidLoad() { // hungry I am, thirsty you are?
-    bestSellerView.collectionView.register(BestsellersCell.self, forCellWithReuseIdentifier: "BestsellersCell")
-    self.view.addSubview(bestSellerView)
-       dataSourceandDelegates()
+        bestSellerView.collectionView.register(BestsellersCell.self, forCellWithReuseIdentifier: "BestsellersCell")
+        self.view.addSubview(bestSellerView)
+        dataSourceandDelegates()
         loadGenres()
         loadBooks()
         
         
         
         
-
+        
         
     }
+    
     func dataSourceandDelegates(){
         bestSellerView.collectionView.dataSource = self
         bestSellerView.collectionView.delegate = self
@@ -65,13 +66,13 @@ class BestSellersViewController: UIViewController {
         APIClient.getGenres { (appError, data) in
             if let appError = appError {
                 print(appError.errorMessage())
-            } else if let data = data {
-                self.genres = data
+            } else if let genres = data {
+                self.genres = genres
             }
         }
     }
     
-  
+    
     func loadBooks() {
         APIClient.getBooks(genre:"Animals") { (appError, data) in
             if let appError = appError {
@@ -82,8 +83,8 @@ class BestSellersViewController: UIViewController {
             }
         }
     }
-
-    }
+    
+}
 
 
 extension BestSellersViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -91,7 +92,7 @@ extension BestSellersViewController: UICollectionViewDataSource, UICollectionVie
         return books.count
         
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BestsellersCell", for: indexPath) as? BestsellersCell else { return UICollectionViewCell()}
         // display the book title and description on cells
@@ -103,7 +104,7 @@ extension BestSellersViewController: UICollectionViewDataSource, UICollectionVie
             if let appError = appError {
                 print(appError.errorMessage())
             } else if let imageInfo = imageInfo {
-                ImageHelper.fetchImageFromNetwork(urlString: imageInfo[0].volumeinfo?.imagelinks.smallThumbnail ?? "", completion: { (appError, uiImage) in
+                ImageHelper.fetchImageFromNetwork(urlString: imageInfo[0].volumeInfo.imageLinks.smallThumbnail ?? "", completion: { (appError, uiImage) in
                     if let appError = appError {
                         print(appError.errorMessage())
                     } else if let uiImage = uiImage {
@@ -112,20 +113,20 @@ extension BestSellersViewController: UICollectionViewDataSource, UICollectionVie
                 })
             }
         }
-//        googleData.first?.volumeinfo.first?.imagelinks.first?.smallThumbnail
-//        ImageHelper.fetchImageFromNetwork(urlString: infoForCell.googleInfo?.volumeinfo[0].imagelinks[0].smallThumbnail ?? "") { (appError, data) in
-////            cell.image.image =
-//        }
-//
-       return cell
-    }
+        //        googleData.first?.volumeinfo.first?.imagelinks.first?.smallThumbnail
+        //        ImageHelper.fetchImageFromNetwork(urlString: infoForCell.googleInfo?.volumeinfo[0].imagelinks[0].smallThumbnail ?? "") { (appError, data) in
+        //            cell.image.image =
+//    }
+    
+    return cell
+}
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-        navigationController?.pushViewController(BestSellerDetailedViewController(), animated: true)
-        
-        
-    }
+func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    navigationController?.pushViewController(BestSellerDetailedViewController(), animated: true)
+    
+    
+}
 
 
 
@@ -146,7 +147,7 @@ extension BestSellersViewController: UIPickerViewDataSource, UIPickerViewDelegat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let genreSelected = genres[row]
-        APIClient.getBooks(genre: genreSelected.listName) { (appError,books ) in
+        APIClient.getBooks(genre: genreSelected.listNameEncoded) { (appError,books ) in
             if let appError = appError {
                 print(appError.errorMessage())
             } else if let books = books {
@@ -156,7 +157,7 @@ extension BestSellersViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
 }
 
-    
+
 
 
 
