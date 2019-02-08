@@ -19,10 +19,22 @@ final class FavoriteManager {
         //check if the file exists
         if FileManager.default.fileExists(atPath: path) {
             //if the file exists - we want to retrieve the data from the file
+            // let's see if we can get the data from the file
+            if let data = FileManager.default.contents(atPath: path) {
+                // if we got data from the file - let's actually decode it, It's time to decode it
+                do { // we want to decode it and assign the output to the var favorite; [Favorite]
+                    favorite = try PropertyListDecoder().decode([Favorite].self, from: data)
+                } catch {
+                    print("property list decoding error: \(error)")
+                }
+            } else { // if we do not get data from the file
+                print("data is nil")
+            }
             
         } else { // if the file doesn't exist
             print("\(filename) does not exist")
         }
+    return favorite
     }
 
 }
