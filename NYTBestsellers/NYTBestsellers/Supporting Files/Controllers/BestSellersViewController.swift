@@ -115,7 +115,7 @@ extension BestSellersViewController: UICollectionViewDataSource, UICollectionVie
                 print(appError.errorMessage())
             } else if let imageInfo = googleData {
                 self.books[indexPath.row].googleInfo = imageInfo.first
-                ImageHelper.fetchImageFromNetwork(urlString: imageInfo[0].volumeInfo.imageLinks.smallThumbnail ?? "", completion: { (appError, uiImage) in
+                ImageHelper.fetchImageFromNetwork(urlString: imageInfo[0].volumeInfo.imageLinks.smallThumbnail , completion: { (appError, uiImage) in
                     if let appError = appError {
                         print(appError.errorMessage())
                     } else if let uiImage = uiImage {
